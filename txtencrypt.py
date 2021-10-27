@@ -5,10 +5,12 @@ def encrypt(key, input):
     output = ""
     random.seed(key)
     for char in f.read():
-        m = chr(ord(char) + random.randrange(1, 26))
+        #generates new unicode value for that character
+        m = chr(ord(char) + random.randrange(-10, 10))
         output = output + m
+        print(m)
         print(ord(m))
-    b = open("encrypted file","w")
+    b = open("encrypted-file.txt","w")
     b.write(output)
     b.close
     return(output)
@@ -17,15 +19,18 @@ def decrypt(key, input):
     output = ""
     random.seed(key)
     for char in f.read():
-        m = chr(ord(char) - random.randrange(1, 26))
+        #reverts unicode value for that character back to what it was before encryption
+        m = chr(ord(char) - random.randrange(-10, 10))
         output = output + m
+        print(m)
         print(ord(m))
-    b = open("decrypted file","w")
+    b = open("decrypted-file.txt","w")
     b.write(output)
     b.close
     return(output)
 
 while i == 0:
+    #what you see on the console and how to interact with the program
     print("encrypt or decrypt?")
     z = input()
     if z == "encrypt":
@@ -33,11 +38,11 @@ while i == 0:
         x = input()
         print("input file name")
         y = input()
-        print(encrypt(x, y))
+        print(str(encrypt(x, y)))
     else:
         if z == "decrypt":
             print("input key")
             x = input()
             print("input file name")
             y = input()
-            print(decrypt(x, y))
+            print(str(decrypt(x, y)))
