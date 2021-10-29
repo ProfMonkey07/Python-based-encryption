@@ -10,7 +10,7 @@ def encrypt(key, input):
         output = output + m
         print(m)
         print(ord(m))
-    b = open("encrypted-file.txt","w")
+    b = open(str(input.split('.')[0] + "(enc)" + input.split('.')[1]),"w")
     b.write(output)
     b.close
     return(output)
@@ -24,7 +24,7 @@ def decrypt(key, input):
         output = output + m
         print(m)
         print(ord(m))
-    b = open("decrypted-file.txt","w")
+    b = openstr(input.split('.')[0] + "(dec)" + input.split('.')[1]),"w")
     b.write(output)
     b.close
     return(output)
